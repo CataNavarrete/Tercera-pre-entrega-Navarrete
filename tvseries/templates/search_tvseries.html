@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Search TV Series</title>
+</head>
+<body>
+    <h1>Search TV Series</h1>
+    <form method="GET" action="{% url 'search_tvseries' %}">
+        <input type="text" name="q">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for tvs in tvseries %}
+            <li>{{ tvs.title }} - {{ tvs.description }} - {{ tvs.rating }}</li>
+        {% empty %}
+            <li>No TV Series found</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

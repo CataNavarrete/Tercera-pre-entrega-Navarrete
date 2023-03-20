@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TV Series</title>
+</head>
+<body>
+    <h1>Add a new TV Series</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+
+    <h1>TV Series List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for serie in series %}
+                <tr>
+                    <td>{{ serie.title }}</td>
+                    <td>{{ serie.description }}</td>
+                    <td>{{ serie.rating }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
